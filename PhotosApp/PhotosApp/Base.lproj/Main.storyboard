@@ -46,7 +46,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="imageView" destination="XnT-N6-6q7" id="cxy-vR-eF7"/>
+                                            <outlet property="imageView" destination="1GS-Eg-Mps" id="uQz-6e-qkI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
