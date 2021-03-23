@@ -14,7 +14,7 @@ class PhotosGenerator {
         var photoList = [Photo]()
         
         for _ in 0..<40 {
-            photoList.append(Photo(thumbnail: ""))
+            photoList.append(Photo())
         }
         
         return photoList

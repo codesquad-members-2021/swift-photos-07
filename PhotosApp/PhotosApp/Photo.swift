@@ -9,8 +9,10 @@ import Foundation
 
 struct Photo {
     
-    let thumbnail: String
+    private var thumbnail: String = ""
     
-    
+    func getThumbnail() -> String {
+        return self.thumbnail
+    }
 }
 

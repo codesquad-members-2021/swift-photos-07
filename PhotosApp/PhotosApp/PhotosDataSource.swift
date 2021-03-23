@@ -29,7 +29,7 @@ extension PhotosDataSource : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         let photo = getPhoto(at: indexPath)
         
-        cell.imageView.image = UIImage(named: photo.thumbnail)
+        cell.imageView.image = UIImage(named: photo.getThumbnail())
         cell.imageView.backgroundColor = UIColor.randomColor()
         
         return cell
