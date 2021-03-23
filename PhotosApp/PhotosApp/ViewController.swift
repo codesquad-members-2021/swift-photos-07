@@ -23,8 +23,10 @@ class ViewController: UIViewController {
     
     func pushView() {
         let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "DoodleViewController") as! DoodleViewController
-
-       self.navigationController?.pushViewController(pushVC, animated: true)
+        
+        let navController = UINavigationController(rootViewController: pushVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated:true, completion: nil)
      }
 
     @IBAction func addButton(_ sender: Any) {

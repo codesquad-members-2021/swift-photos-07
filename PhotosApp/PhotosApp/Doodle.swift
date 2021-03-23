@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct Doodle: Codable {
+    
+    private let title: String
+    private let image: String
+    private let date: String
+    
+    func getImage() -> String {
+        return self.image
+    }
+}
