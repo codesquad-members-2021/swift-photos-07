@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93A0D4F526098B7A0071FF65 /* PHAsset+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D4F426098B7A0071FF65 /* PHAsset+ext.swift */; };
 		AE2F88662608692100FEF56A /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2F88652608692100FEF56A /* PhotoCell.swift */; };
-		AE2F886926086A2000FEF56A /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2F886826086A2000FEF56A /* UIColor+ext.swift */; };
 		AE49A34326088C33001E57EC /* PhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A34226088C33001E57EC /* PhotosDataSource.swift */; };
 		AE49A34626088FA3001E57EC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A34526088FA3001E57EC /* Photo.swift */; };
-		AE49A3492608922F001E57EC /* PhotosGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A3482608922F001E57EC /* PhotosGenerator.swift */; };
 		AEB13A952608646400B70026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB13A942608646400B70026 /* AppDelegate.swift */; };
 		AEB13A972608646400B70026 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB13A962608646400B70026 /* SceneDelegate.swift */; };
 		AEB13A992608646400B70026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB13A982608646400B70026 /* ViewController.swift */; };
@@ -22,12 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		93A0D4F426098B7A0071FF65 /* PHAsset+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+ext.swift"; sourceTree = "<group>"; };
 		AE2F88652608692100FEF56A /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
-		AE2F886826086A2000FEF56A /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		AE49A34226088C33001E57EC /* PhotosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSource.swift; sourceTree = "<group>"; };
 		AE49A34526088FA3001E57EC /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		AE49A3482608922F001E57EC /* PhotosGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosGenerator.swift; sourceTree = "<group>"; };
 		AEB13A912608646400B70026 /* PhotosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB13A942608646400B70026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEB13A962608646400B70026 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,10 +67,7 @@
 				AEB13A982608646400B70026 /* ViewController.swift */,
 				AE49A34226088C33001E57EC /* PhotosDataSource.swift */,
 				AE49A34526088FA3001E57EC /* Photo.swift */,
-				AE49A3482608922F001E57EC /* PhotosGenerator.swift */,
 				AE2F88652608692100FEF56A /* PhotoCell.swift */,
-				AE2F886826086A2000FEF56A /* UIColor+ext.swift */,
-				93A0D4F426098B7A0071FF65 /* PHAsset+ext.swift */,
 				AEB13A9A2608646400B70026 /* Main.storyboard */,
 				AEB13A9D2608646500B70026 /* Assets.xcassets */,
 				AEB13A9F2608646500B70026 /* LaunchScreen.storyboard */,
@@ -158,11 +149,8 @@
 				AE49A34626088FA3001E57EC /* Photo.swift in Sources */,
 				AE2F88662608692100FEF56A /* PhotoCell.swift in Sources */,
 				AEB13A992608646400B70026 /* ViewController.swift in Sources */,
-				93A0D4F526098B7A0071FF65 /* PHAsset+ext.swift in Sources */,
 				AEB13A952608646400B70026 /* AppDelegate.swift in Sources */,
-				AE49A3492608922F001E57EC /* PhotosGenerator.swift in Sources */,
 				AEB13A972608646400B70026 /* SceneDelegate.swift in Sources */,
-				AE2F886926086A2000FEF56A /* UIColor+ext.swift in Sources */,
 				AE49A34326088C33001E57EC /* PhotosDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
