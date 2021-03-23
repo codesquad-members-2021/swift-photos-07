@@ -20,6 +20,14 @@ class ViewController: UIViewController {
         self.collectionView.dataSource = photosDataSource
         
     }
+    
+    func pushView() {
+        let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "DoodleViewController") as! DoodleViewController
 
+       self.navigationController?.pushViewController(pushVC, animated: true)
+     }
 
+    @IBAction func addButton(_ sender: Any) {
+        pushView()
+    }
 }
