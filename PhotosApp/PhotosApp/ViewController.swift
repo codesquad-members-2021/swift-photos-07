@@ -15,11 +15,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let photos = PhotosGenerator.generate()
-        photosDataSource = PhotosDataSource(photos: photos)
+        photosDataSource = PhotosDataSource()
         self.collectionView.dataSource = photosDataSource
         
     }
-
-
 }
