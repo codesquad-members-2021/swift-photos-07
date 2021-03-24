@@ -17,10 +17,14 @@ class DoodleViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Doodles"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(closeButtonTouched))
-//        doodlesDataSource = DoodlesDataSource(doodles: <#T##[Doodle]#>)
-//        self.collectionView.dataSource = doodlesDataSource
+        
         jsonParser = JsonParser()
-        jsonParser.getDoodles()
+        DispatchQueue.main.async {
+            self.jsonParser.parse { doodles in
+                self.doodlesDataSource = DoodlesDataSource(doodles: doodles)
+                self.collectionView.dataSource = self.doodlesDataSource
+            }
+        }
     }
     
     @objc func closeButtonTouched() {

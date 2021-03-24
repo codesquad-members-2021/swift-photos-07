@@ -14,8 +14,12 @@ class DoodlesDataSource: NSObject {
         self.doodles = doodles
     }
     
-    func getDoodle(at indexPath: IndexPath) -> Doodle {
+    private func getDoodle(at indexPath: IndexPath) -> Doodle {
         return doodles[indexPath.item]
+    }
+    
+    func saveDoodleImage() {
+        
     }
 }
 
@@ -25,10 +29,17 @@ extension DoodlesDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
         let doodle = getDoodle(at: indexPath)
+        guard let imageUrl = URL(string: doodle.getImage()) else { return UICollectionViewCell() }
         
-        cell.imageView.image = UIImage(named: doodle.getImage())
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: imageUrl) {
+                DispatchQueue.main.async {
+                    cell.imageView.image = UIImage(data: data)
+                }
+            }
+        }
         
         return cell
     }

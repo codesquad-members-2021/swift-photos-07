@@ -14,13 +14,12 @@ class JsonParser {
         self.doodles = []
     }
     
-    private func readLocalFile(forName name: String) -> [[String: Any]]? {
+    private func readLocalFile(forName name: String) -> Data? {
         do {
             if let bundlePath = Bundle.main.path(forResource: name,
                                                  ofType: "json"),
                 let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
-                let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [[String: Any]]
-                return json
+                return jsonData
             }
         } catch {
             print(error)
@@ -29,14 +28,14 @@ class JsonParser {
         return nil
     }
     
-    private func parse(json: [[String: Any]])  {
+    func parse(withCompletion completion:@escaping ([Doodle]) -> ()) {
+        let decoder = JSONDecoder()
         
-    }
-    
-    func getDoodles() -> [Doodle] {
-        guard let doodlesData = self.readLocalFile(forName: "doodle") else { return [] }
-        parse(jsonData: doodlesData)
-        
-        return self.doodles
+        do {
+            let doodles = try decoder.decode([Doodle].self, from: readLocalFile(forName: "doodle") ?? Data())
+            completion(doodles)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
