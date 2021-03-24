@@ -11,6 +11,7 @@ import Photos
 class PhotosDataSource: NSObject {
     private let photos = PHAsset.fetchAssets(with: .none)
     private let cachingManager = PHCachingImageManager()
+    
 }
 
 extension PhotosDataSource : UICollectionViewDataSource {
