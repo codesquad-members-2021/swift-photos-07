@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
 
@@ -15,11 +16,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let photos = PhotosGenerator.generate()
-        photosDataSource = PhotosDataSource(photos: photos)
+        photosDataSource = PhotosDataSource()
         self.collectionView.dataSource = photosDataSource
-        
+        PHPhotoLibrary.shared().register(self)
     }
+}
 
-
+extension ViewController: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        //변경됨
+    }
+    
+    
 }

@@ -6,17 +6,12 @@
 //
 
 import UIKit
+import Photos
 
 class PhotosDataSource: NSObject {
-    private let photos: [Photo]
+    private let photos = PHAsset.fetchAssets(with: .none)
+    private let cachingManager = PHCachingImageManager()
     
-    init(photos: [Photo]) {
-        self.photos = photos
-    }
-    
-    func getPhoto(at indexPath: IndexPath) -> Photo {
-        return photos[indexPath.item]
-    }
 }
 
 extension PhotosDataSource : UICollectionViewDataSource {
@@ -26,11 +21,19 @@ extension PhotosDataSource : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
-        let photo = getPhoto(at: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else {
+            return UICollectionViewCell()
+        }
         
-        cell.imageView.image = UIImage(named: photo.thumbnail)
-        cell.imageView.backgroundColor = UIColor.randomColor()
+        let photo = photos.object(at: indexPath.item)
+        let resultHandler = { (image: UIImage?, _: [AnyHashable: Any]?) -> () in
+            cell.imageView.image = image
+        }
+        cachingManager.requestImage(for: photo,
+                                    targetSize: CGSize(width: Photo.Size.width, height: Photo.Size.height),
+                                    contentMode: .aspectFill,
+                                    options: .none,
+                                    resultHandler: resultHandler)
         
         return cell
     }
