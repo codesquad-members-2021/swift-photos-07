@@ -62,9 +62,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photos" id="OYq-Sh-hlM">
-                        <barButtonItem key="leftBarButtonItem" title="+" id="Ry3-73-01y">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Ry3-73-01y">
                             <connections>
                                 <action selector="addButton:" destination="BYZ-38-t0r" id="Ofc-y3-KVx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="IhL-Fo-weg">
+                            <connections>
+                                <action selector="EditButtonPressed:" destination="BYZ-38-t0r" id="oRS-bm-KGm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
