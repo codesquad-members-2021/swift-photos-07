@@ -173,7 +173,6 @@
 				AE49A3492608922F001E57EC /* PhotosGenerator.swift in Sources */,
 				93A0D51B2609DF4B0071FF65 /* Doodle.swift in Sources */,
 				AEB13A972608646400B70026 /* SceneDelegate.swift in Sources */,
-				AE2F886926086A2000FEF56A /* UIColor+ext.swift in Sources */,
 				93A0D5182609DF020071FF65 /* DoodlesDataSource.swift in Sources */,
 				AE620F712609890900BD0FCE /* DoodleViewController.swift in Sources */,
 				AE49A34326088C33001E57EC /* PhotosDataSource.swift in Sources */,

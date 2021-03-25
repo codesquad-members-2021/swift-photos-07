@@ -6,22 +6,37 @@
 //
 
 import UIKit
-import Photos
+import Combine
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     private var photosDataSource: PhotosDataSource!
+    private var photoPublisher: AnyCancellable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         photosDataSource = PhotosDataSource()
         self.collectionView.dataSource = photosDataSource
-        PHPhotoLibrary.shared().register(self)
+        setPhotosSubscriber()
     }
     
-    func pushView() {
+    private func setPhotosSubscriber() {
+        photoPublisher = NotificationCenter.default
+            .publisher(for: Photo.NotificationName.didChangePhotos)
+            .sink { notification in
+                DispatchQueue.main.async {
+                    self.updateCollectionView()
+                }
+            }
+    }
+    
+    private func updateCollectionView() {
+        self.collectionView.reloadData()
+    }
+    
+    private func pushView() {
         let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "DoodleViewController") as! DoodleViewController
         
         let navController = UINavigationController(rootViewController: pushVC)
@@ -67,10 +82,4 @@ class ViewController: UIViewController {
     }
     
     
-}
-
-extension ViewController: PHPhotoLibraryChangeObserver {
-    func photoLibraryDidChange(_ changeInstance: PHChange) {
-        // 변경됨
-    }
 }
