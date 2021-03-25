@@ -5,7 +5,6 @@
 //  Created by Lia on 2021/03/22.
 //
 
-import Foundation
 import UIKit
 import Photos
 
@@ -43,6 +42,11 @@ extension PhotosDataSource: UICollectionViewDataSource {
                                     contentMode: .aspectFill,
                                     options: .none,
                                     resultHandler: resultHandler)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .systemRed
+        cell.selectedBackgroundView = backgroundView
+        
         return cell
     }
 }

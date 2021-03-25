@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
         photosDataSource = PhotosDataSource()
         self.collectionView.dataSource = photosDataSource
+        self.collectionView.allowsMultipleSelection = true
         setPhotosSubscriber()
     }
     
@@ -53,10 +54,12 @@ class ViewController: UIViewController {
         let makeVideo = UIAlertAction(title: "동영상 만들기", style: .default, handler: alertActionHandler)
         let makeEffect = UIAlertAction(title: "효과 주기", style: .default, handler: nil)
         let revert = UIAlertAction(title: "되돌리기", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         actionSheet.addAction(makeVideo)
         actionSheet.addAction(makeEffect)
         actionSheet.addAction(revert)
+        actionSheet.addAction(cancel)
         
         // 사진 선택하면 isEnabled = true 로 변경하기!
 //        makeVideo.isEnabled = false
@@ -80,6 +83,4 @@ class ViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-    
-    
 }
