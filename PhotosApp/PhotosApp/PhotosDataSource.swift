@@ -9,12 +9,20 @@ import UIKit
 import Photos
 
 class PhotosDataSource: NSObject {
-    private let photos = PHAsset.fetchAssets(with: .none)
+    private var photos = PHAsset.fetchAssets(with: .none)
     private let cachingManager = PHCachingImageManager()
     
+    override init() {
+        super.init()
+        PHPhotoLibrary.shared().register(self)
+    }
+    
+    func getPhotos() -> PHFetchResult<PHAsset> {
+        return self.photos
+    }
 }
 
-extension PhotosDataSource : UICollectionViewDataSource {
+extension PhotosDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -35,6 +43,11 @@ extension PhotosDataSource : UICollectionViewDataSource {
                                     options: .none,
                                     resultHandler: resultHandler)
         return cell
+    }
+}
+
+extension PhotosDataSource: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
     }
 }
 
