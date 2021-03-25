@@ -10,4 +10,12 @@ import UIKit
 class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    func saveDoodleImage() {
+        
+    }
 }

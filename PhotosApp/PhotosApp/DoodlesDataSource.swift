@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol ImageSaveMenuDidTapped {
+    func save(imageView: UIImageView)
+}
+
 class DoodlesDataSource: NSObject {
     private var doodles: [Doodle]
+    private var delegate: ImageSaveMenuDidTapped?
     
     init(doodles: [Doodle]) {
         self.doodles = doodles
@@ -16,10 +21,6 @@ class DoodlesDataSource: NSObject {
     
     private func getDoodle(at indexPath: IndexPath) -> Doodle {
         return doodles[indexPath.item]
-    }
-    
-    func saveDoodleImage() {
-        
     }
 }
 
@@ -40,7 +41,7 @@ extension DoodlesDataSource: UICollectionViewDataSource {
                 }
             }
         }
-        
+    
         return cell
     }
 }
