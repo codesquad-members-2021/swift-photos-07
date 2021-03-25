@@ -9,23 +9,18 @@ import UIKit
 import Photos
 
 class PhotosDataSource: NSObject {
-    private var photos = PHAsset.fetchAssets(with: .none)
-    private let cachingManager = PHCachingImageManager()
+    private var photosAsset: PhotosAssetManageable
     
     override init() {
+        self.photosAsset = PhotosAsset()
         super.init()
-        PHPhotoLibrary.shared().register(self)
-    }
-    
-    func getPhotos() -> PHFetchResult<PHAsset> {
-        return self.photos
     }
 }
 
 extension PhotosDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return photosAsset.count()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,29 +28,12 @@ extension PhotosDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let photo = photos.object(at: indexPath.item)
         let resultHandler = { (image: UIImage?, _: [AnyHashable: Any]?) -> () in
             cell.imageView.image = image
         }
-        cachingManager.requestImage(for: photo,
-                                    targetSize: CGSize(width: Photo.Size.width, height: Photo.Size.height),
-                                    contentMode: .aspectFill,
-                                    options: .none,
-                                    resultHandler: resultHandler)
-        
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .systemRed
-        cell.selectedBackgroundView = backgroundView
+        photosAsset.requestImage(with: indexPath.item, completion: resultHandler)
         
         return cell
-    }
-}
-
-extension PhotosDataSource: PHPhotoLibraryChangeObserver {
-    func photoLibraryDidChange(_ changeInstance: PHChange) {
-        guard let changedPhotos = changeInstance.changeDetails(for: photos) else { return }
-        self.photos = changedPhotos.fetchResultAfterChanges
-        NotificationCenter.default.post(name: Photo.NotificationName.didChangePhotos, object: self)
     }
 }
 
