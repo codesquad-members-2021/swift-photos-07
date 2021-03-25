@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         self.collectionView.dataSource = photosDataSource
         self.collectionView.allowsMultipleSelection = true
         setPhotosSubscriber()
+        self.collectionView.allowsMultipleSelection = true
     }
     
     private func setPhotosSubscriber() {
