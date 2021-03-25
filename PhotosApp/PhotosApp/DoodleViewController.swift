@@ -58,7 +58,8 @@ class DoodleViewController: UIViewController, ImageSaveMenuDidTapped {
     }
     
     func save(imageView: UIImageView) {
-        //저장 코드
+        guard let image = imageView.image else { return }
+        UIImageWriteToSavedPhotosAlbum(image, .none, .none, .none)
     }
 }
 
