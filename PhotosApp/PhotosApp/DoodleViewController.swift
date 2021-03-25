@@ -30,26 +30,27 @@ class DoodleViewController: UIViewController, ImageSaveMenuDidTapped {
     }
     
     private func configureLongPress() {
-        let longPressGestureRecognizer = CustomLongPressGesture(target: self, action: #selector(imageLongPressed(sender:)))
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(imageLongPressed(sender:)))
         longPressGestureRecognizer.minimumPressDuration = 0.5
         self.view.addGestureRecognizer(longPressGestureRecognizer)
     }
     
-    @objc func imageLongPressed(sender: CustomLongPressGesture) {
+    @objc func imageLongPressed(sender: UILongPressGestureRecognizer) {
         let imagePoint = sender.location(in: self.collectionView)
 
         guard let indexPath = self.collectionView.indexPathForItem(at: imagePoint) else { return }
         guard let cell = self.collectionView.cellForItem(at: indexPath) as? PhotoCell else { return }
         cell.becomeFirstResponder()
-        sender.imageView = cell.imageView
+        CustomUIMenuController.imageView = cell.imageView
         
         let saveItem = UIMenuItem(title: "Save", action: #selector(saveItemTapped))
         UIMenuController.shared.menuItems = [saveItem]
         UIMenuController.shared.arrowDirection = .default
-        UIMenuController.shared.showMenu(from: self.collectionView, rect: CGRect(origin: imagePoint, size: CGSize(width: 100, height: 100)))
+        UIMenuController.shared.showMenu(from: self.collectionView, rect: CGRect(origin: sender.location(in: self.collectionView), size: CGSize(width: 100, height: 100)))
     }
     
-    @objc func saveItemTapped(sender: CustomLongPressGesture) {
+    @objc func saveItemTapped() {
+        save(imageView: CustomUIMenuController.imageView ?? UIImageView())
     }
     
     @objc func closeButtonTouched() {
@@ -57,9 +58,10 @@ class DoodleViewController: UIViewController, ImageSaveMenuDidTapped {
     }
     
     func save(imageView: UIImageView) {
+        //저장 코드
     }
 }
 
-class CustomLongPressGesture: UILongPressGestureRecognizer {
-    var imageView: UIImageView?
+class CustomUIMenuController: UIMenuController {
+    static var imageView: UIImageView?
 }
