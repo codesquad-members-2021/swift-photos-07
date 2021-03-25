@@ -34,7 +34,6 @@ extension PhotosDataSource : UICollectionViewDataSource {
                                     contentMode: .aspectFill,
                                     options: .none,
                                     resultHandler: resultHandler)
-        
         return cell
     }
 }

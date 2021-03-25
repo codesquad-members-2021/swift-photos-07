@@ -12,11 +12,11 @@ class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    override init(frame: CGRect) {
-             super.init(frame: frame)
-         }
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    func saveDoodleImage() {
+        
     }
 }

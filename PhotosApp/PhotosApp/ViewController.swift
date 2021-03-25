@@ -20,12 +20,16 @@ class ViewController: UIViewController {
         self.collectionView.dataSource = photosDataSource
         PHPhotoLibrary.shared().register(self)
     }
-}
+    
+    func pushView() {
+        let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "DoodleViewController") as! DoodleViewController
+        
+        let navController = UINavigationController(rootViewController: pushVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated:true, completion: nil)
+     }
 
-extension ViewController: PHPhotoLibraryChangeObserver {
-    func photoLibraryDidChange(_ changeInstance: PHChange) {
-        //변경됨
+    @IBAction func addButton(_ sender: Any) {
+        pushView()
     }
-    
-    
 }

@@ -13,8 +13,10 @@ struct Photo {
         static let height = 100
     }
     
-    let thumbnail: String
+    private var thumbnail: String = ""
     
-    
+    func getThumbnail() -> String {
+        return self.thumbnail
+    }
 }
 
