@@ -33,3 +33,9 @@ class ViewController: UIViewController {
         pushView()
     }
 }
+
+extension ViewController: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        // 변경됨
+    }
+}
