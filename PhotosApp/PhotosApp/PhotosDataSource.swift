@@ -5,6 +5,7 @@
 //  Created by Lia on 2021/03/22.
 //
 
+import Foundation
 import UIKit
 import Photos
 
@@ -48,6 +49,9 @@ extension PhotosDataSource: UICollectionViewDataSource {
 
 extension PhotosDataSource: PHPhotoLibraryChangeObserver {
     func photoLibraryDidChange(_ changeInstance: PHChange) {
+        guard let changedPhotos = changeInstance.changeDetails(for: photos) else { return }
+        self.photos = changedPhotos.fetchResultAfterChanges
+        NotificationCenter.default.post(name: Photo.NotificationName.didChangePhotos, object: self)
     }
 }
 

@@ -8,6 +8,10 @@
 import Foundation
 
 struct Photo {
+    enum NotificationName {
+        static let didChangePhotos = Notification.Name("didChangePhotos")
+    }
+    
     enum Size {
         static let width = 100
         static let height = 100
