@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OF4-rg-arn">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fpn-nR-6ug">
->>>>>>> feature-GCD
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -25,12 +21,8 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TJK-6x-9Nx">
-<<<<<<< HEAD
-                                    <size key="itemSize" width="100" height="100"/>
-=======
                                     <size key="itemSize" width="80" height="80"/>
                                     <size key="estimatedItemSize" width="80" height="80"/>
->>>>>>> feature-GCD
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
@@ -70,9 +62,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WjT-ef-qqf" secondAttribute="trailing" id="c5a-Ic-eCT"/>
                         </constraints>
                     </view>
-<<<<<<< HEAD
-                    <navigationItem key="navigationItem" title="Photos" id="mQD-1g-77H"/>
-=======
                     <navigationItem key="navigationItem" title="Photos" id="OYq-Sh-hlM">
                         <barButtonItem key="leftBarButtonItem" title="+" id="Ry3-73-01y">
                             <connections>
@@ -80,7 +69,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
->>>>>>> feature-GCD
                     <connections>
                         <outlet property="collectionView" destination="WjT-ef-qqf" id="fGx-wG-Q7E"/>
                     </connections>
@@ -89,15 +77,6 @@
             </objects>
             <point key="canvasLocation" x="1060" y="114.45497630331754"/>
         </scene>
-<<<<<<< HEAD
-        <!--Navigation Controller-->
-        <scene sceneID="hpu-dM-YRz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OF4-rg-arn" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="cPo-cL-eZB">
-                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
-=======
         <!--Doodle View Controller-->
         <scene sceneID="bUh-hT-MYv">
             <objects>
@@ -166,22 +145,14 @@
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="isX-5o-Wfp">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
->>>>>>> feature-GCD
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-<<<<<<< HEAD
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YAg-eG-7PD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0v4-D4-uxB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-=======
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3nd-Iz-Y9M"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE3-uR-meD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
->>>>>>> feature-GCD
             </objects>
             <point key="canvasLocation" x="130.76923076923077" y="114.45497630331754"/>
         </scene>
