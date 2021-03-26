@@ -45,7 +45,6 @@ extension PhotosDataSource: UICollectionViewDataSource {
         // MARK: image display
         if photo.mediaSubtypes.contains(.photoLive) {
             updateLivePhoto(cell: cell)
-//            cell.livePhotoImageView.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
             print("📸")
         } else {
             updateStaticPhoto(cell: cell)
@@ -85,6 +84,7 @@ extension PhotosDataSource: UICollectionViewDataSource {
             cell.imageView.isHidden = true
             cell.livePhotoImageView.isHidden = false
             cell.livePhotoImageView.livePhoto = livePhoto
+            cell.livePhotoBadgeImageView.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
             
             if !self.isPlayingHint {
                 // Play back a short section of the Live Photo, similar to the Photos share sheet.

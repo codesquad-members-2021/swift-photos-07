@@ -41,6 +41,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xkl-qS-jpw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="5rg-iY-p7A"/>
+                                                        <constraint firstAttribute="height" constant="30" id="OoX-EW-evp"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="MJC-mA-yIH" secondAttribute="bottom" id="LEa-Dz-1Wx"/>
@@ -50,11 +57,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="MJC-mA-yIH" secondAttribute="trailing" id="kkD-aH-rHt"/>
                                                 <constraint firstItem="MJC-mA-yIH" firstAttribute="leading" secondItem="XnT-N6-6q7" secondAttribute="leading" id="lET-zm-pm7"/>
                                                 <constraint firstItem="1GS-Eg-Mps" firstAttribute="top" secondItem="XnT-N6-6q7" secondAttribute="top" constant="2" id="qRl-DP-Div"/>
+                                                <constraint firstItem="Xkl-qS-jpw" firstAttribute="top" secondItem="XnT-N6-6q7" secondAttribute="top" id="qmE-Vs-Kf9"/>
+                                                <constraint firstItem="Xkl-qS-jpw" firstAttribute="leading" secondItem="XnT-N6-6q7" secondAttribute="leading" id="rgD-it-hLR"/>
                                                 <constraint firstAttribute="bottom" secondItem="1GS-Eg-Mps" secondAttribute="bottom" constant="2" id="zQF-6a-nK4"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="imageView" destination="1GS-Eg-Mps" id="uQz-6e-qkI"/>
+                                            <outlet property="livePhotoBadgeImageView" destination="Xkl-qS-jpw" id="Mvj-zd-kYY"/>
                                             <outlet property="livePhotoImageView" destination="MJC-mA-yIH" id="jhH-2f-kUT"/>
                                         </connections>
                                     </collectionViewCell>
