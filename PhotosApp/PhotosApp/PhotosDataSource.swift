@@ -45,16 +45,9 @@ extension PhotosDataSource: UICollectionViewDataSource {
         // MARK: image display
         if photo.mediaSubtypes.contains(.photoLive) {
             updateLivePhoto(cell: cell)
-            print("📸")
         } else {
             updateStaticPhoto(cell: cell)
         }
-        
-        // 이건 왜 필요한 건가요??
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .systemRed
-        cell.selectedBackgroundView = backgroundView
-        
         return cell
     }
     
