@@ -17,7 +17,6 @@
 		AE2F88662608692100FEF56A /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2F88652608692100FEF56A /* PhotoCell.swift */; };
 		AE49A34326088C33001E57EC /* PhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A34226088C33001E57EC /* PhotosDataSource.swift */; };
 		AE49A34626088FA3001E57EC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A34526088FA3001E57EC /* Photo.swift */; };
-		AE49A3492608922F001E57EC /* PhotosGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A3482608922F001E57EC /* PhotosGenerator.swift */; };
 		AE620F712609890900BD0FCE /* DoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE620F702609890900BD0FCE /* DoodleViewController.swift */; };
 		AEB13A952608646400B70026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB13A942608646400B70026 /* AppDelegate.swift */; };
 		AEB13A972608646400B70026 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB13A962608646400B70026 /* SceneDelegate.swift */; };
@@ -38,7 +37,6 @@
 		AE2F88652608692100FEF56A /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		AE49A34226088C33001E57EC /* PhotosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSource.swift; sourceTree = "<group>"; };
 		AE49A34526088FA3001E57EC /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		AE49A3482608922F001E57EC /* PhotosGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosGenerator.swift; sourceTree = "<group>"; };
 		AE620F702609890900BD0FCE /* DoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleViewController.swift; sourceTree = "<group>"; };
 		AEB13A912608646400B70026 /* PhotosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB13A942608646400B70026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +59,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93A0D540260DC3E30071FF65 /* Doodls */ = {
+			isa = PBXGroup;
+			children = (
+				93A0D549260DC4430071FF65 /* Controller */,
+				93A0D547260DC4200071FF65 /* View */,
+				93A0D542260DC3F30071FF65 /* Model */,
+				93A0D554260DC4F20071FF65 /* Network */,
+			);
+			path = Doodls;
+			sourceTree = "<group>";
+		};
+		93A0D542260DC3F30071FF65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93A0D51A2609DF4B0071FF65 /* Doodle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		93A0D545260DC4140071FF65 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				93A0D537260D511E0071FF65 /* PhotosAssetManageable.swift */,
+				93A0D53A260D6A360071FF65 /* PhotosDataSourceManageable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		93A0D547260DC4200071FF65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93A0D5172609DF020071FF65 /* DoodlesDataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93A0D549260DC4430071FF65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AE620F702609890900BD0FCE /* DoodleViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		93A0D54B260DC45A0071FF65 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				93A0D545260DC4140071FF65 /* Protocol */,
+				93A0D54F260DC4840071FF65 /* Model */,
+				93A0D54D260DC4710071FF65 /* Controller */,
+				93A0D552260DC4B20071FF65 /* View */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		93A0D54D260DC4710071FF65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AEB13A982608646400B70026 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		93A0D54F260DC4840071FF65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE49A34526088FA3001E57EC /* Photo.swift */,
+				93A0D534260D4D2A0071FF65 /* PhotosAsset.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		93A0D552260DC4B20071FF65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE2F88652608692100FEF56A /* PhotoCell.swift */,
+				AE49A34226088C33001E57EC /* PhotosDataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93A0D554260DC4F20071FF65 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				93A0D5202609E4330071FF65 /* JsonParser.swift */,
+				93A0D51D2609E1E20071FF65 /* doodle.json */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		AEB13A882608646400B70026 = {
 			isa = PBXGroup;
 			children = (
@@ -82,23 +170,12 @@
 			children = (
 				AEB13A942608646400B70026 /* AppDelegate.swift */,
 				AEB13A962608646400B70026 /* SceneDelegate.swift */,
-				AEB13A982608646400B70026 /* ViewController.swift */,
-				AE49A34226088C33001E57EC /* PhotosDataSource.swift */,
-				93A0D534260D4D2A0071FF65 /* PhotosAsset.swift */,
-				93A0D537260D511E0071FF65 /* PhotosAssetManageable.swift */,
-				93A0D53A260D6A360071FF65 /* PhotosDataSourceManageable.swift */,
-				AE49A3482608922F001E57EC /* PhotosGenerator.swift */,
-				AE49A34526088FA3001E57EC /* Photo.swift */,
-				AE2F88652608692100FEF56A /* PhotoCell.swift */,
-				AE620F702609890900BD0FCE /* DoodleViewController.swift */,
-				93A0D5172609DF020071FF65 /* DoodlesDataSource.swift */,
-				93A0D51A2609DF4B0071FF65 /* Doodle.swift */,
-				93A0D5202609E4330071FF65 /* JsonParser.swift */,
+				93A0D54B260DC45A0071FF65 /* Photo */,
+				93A0D540260DC3E30071FF65 /* Doodls */,
 				AEB13A9A2608646400B70026 /* Main.storyboard */,
 				AEB13A9D2608646500B70026 /* Assets.xcassets */,
 				AEB13A9F2608646500B70026 /* LaunchScreen.storyboard */,
 				AEB13AA22608646500B70026 /* Info.plist */,
-				93A0D51D2609E1E20071FF65 /* doodle.json */,
 			);
 			path = PhotosApp;
 			sourceTree = "<group>";
@@ -181,7 +258,6 @@
 				AEB13A992608646400B70026 /* ViewController.swift in Sources */,
 				AEB13A952608646400B70026 /* AppDelegate.swift in Sources */,
 				93A0D535260D4D2B0071FF65 /* PhotosAsset.swift in Sources */,
-				AE49A3492608922F001E57EC /* PhotosGenerator.swift in Sources */,
 				93A0D51B2609DF4B0071FF65 /* Doodle.swift in Sources */,
 				AEB13A972608646400B70026 /* SceneDelegate.swift in Sources */,
 				93A0D5182609DF020071FF65 /* DoodlesDataSource.swift in Sources */,
