@@ -37,16 +37,25 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1GS-Eg-Mps">
                                                     <rect key="frame" x="2" y="2" width="96" height="96"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJC-mA-yIH" customClass="PHLivePhotoView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="MJC-mA-yIH" secondAttribute="bottom" id="LEa-Dz-1Wx"/>
+                                                <constraint firstItem="MJC-mA-yIH" firstAttribute="top" secondItem="XnT-N6-6q7" secondAttribute="top" id="LRd-Uu-5kh"/>
                                                 <constraint firstAttribute="trailing" secondItem="1GS-Eg-Mps" secondAttribute="trailing" constant="2" id="ZAp-lr-hHd"/>
                                                 <constraint firstItem="1GS-Eg-Mps" firstAttribute="leading" secondItem="XnT-N6-6q7" secondAttribute="leading" constant="2" id="g1A-SA-uEy"/>
+                                                <constraint firstAttribute="trailing" secondItem="MJC-mA-yIH" secondAttribute="trailing" id="kkD-aH-rHt"/>
+                                                <constraint firstItem="MJC-mA-yIH" firstAttribute="leading" secondItem="XnT-N6-6q7" secondAttribute="leading" id="lET-zm-pm7"/>
                                                 <constraint firstItem="1GS-Eg-Mps" firstAttribute="top" secondItem="XnT-N6-6q7" secondAttribute="top" constant="2" id="qRl-DP-Div"/>
                                                 <constraint firstAttribute="bottom" secondItem="1GS-Eg-Mps" secondAttribute="bottom" constant="2" id="zQF-6a-nK4"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="imageView" destination="1GS-Eg-Mps" id="uQz-6e-qkI"/>
+                                            <outlet property="livePhotoImageView" destination="MJC-mA-yIH" id="jhH-2f-kUT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

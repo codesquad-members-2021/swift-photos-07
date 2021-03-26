@@ -7,13 +7,20 @@
 
 import UIKit
 import Photos
+import PhotosUI
 
 class PhotosDataSource: NSObject {
+    
+    private var photo: PHAsset!
     private var photos = PHAsset.fetchAssets(with: .none)
     private let cachingManager = PHCachingImageManager()
+    fileprivate var playerLayer: AVPlayerLayer!
+    fileprivate var isPlayingHint = false
+    
     
     override init() {
         super.init()
+        
         PHPhotoLibrary.shared().register(self)
     }
     
@@ -33,23 +40,71 @@ extension PhotosDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let photo = photos.object(at: indexPath.item)
-        let resultHandler = { (image: UIImage?, _: [AnyHashable: Any]?) -> () in
-            cell.imageView.image = image
-        }
-        cachingManager.requestImage(for: photo,
-                                    targetSize: CGSize(width: Photo.Size.width, height: Photo.Size.height),
-                                    contentMode: .aspectFill,
-                                    options: .none,
-                                    resultHandler: resultHandler)
+        self.photo = photos.object(at: indexPath.item)
         
+        // MARK: image display
+        if photo.mediaSubtypes.contains(.photoLive) {
+            updateLivePhoto(cell: cell)
+//            cell.livePhotoImageView.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
+            print("📸")
+        } else {
+            updateStaticPhoto(cell: cell)
+        }
+        
+        // 이건 왜 필요한 건가요??
         let backgroundView = UIView()
         backgroundView.backgroundColor = .systemRed
         cell.selectedBackgroundView = backgroundView
         
         return cell
     }
+    
+    private func updateStaticPhoto(cell: PhotoCell) {
+        let resultHandler = { (image: UIImage?, _: [AnyHashable: Any]?) -> () in
+            
+            // Show the image.
+            cell.livePhotoImageView.isHidden = true
+            cell.imageView.isHidden = false
+            cell.imageView.image = image
+        }
+        
+        cachingManager.requestImage(for: photo,
+                                    targetSize: CGSize(width: Photo.Size.width, height: Photo.Size.height),
+                                    contentMode: .aspectFill,
+                                    options: .none,
+                                    resultHandler: resultHandler)
+    }
+    
+    private func updateLivePhoto(cell: PhotoCell) {
+        
+        let resultHandler = { (livePhoto: PHLivePhoto?, _:[AnyHashable : Any]?) in
+            // Show the Live Photo view.
+            guard let livePhoto = livePhoto else { return }
+            
+            // Show the Live Photo.
+            cell.imageView.isHidden = true
+            cell.livePhotoImageView.isHidden = false
+            cell.livePhotoImageView.livePhoto = livePhoto
+            
+            if !self.isPlayingHint {
+                // Play back a short section of the Live Photo, similar to the Photos share sheet.
+                self.isPlayingHint = true
+                cell.livePhotoImageView.startPlayback(with: .hint)
+            }
+        }
+        
+        // Request the live photo for the asset from the default PHImageManager.
+        PHImageManager.default().requestLivePhoto(for: photo,
+                                                  targetSize: CGSize(width: Photo.Size.width, height: Photo.Size.height),
+                                                  contentMode: .aspectFit,
+                                                  options: .none,
+                                                  resultHandler: resultHandler)
+    }
+    
 }
+
+
+//MARK:- PHPhotoLibraryChangeObserver
 
 extension PhotosDataSource: PHPhotoLibraryChangeObserver {
     func photoLibraryDidChange(_ changeInstance: PHChange) {
@@ -59,3 +114,15 @@ extension PhotosDataSource: PHPhotoLibraryChangeObserver {
     }
 }
 
+
+//MARK:- PHLivePhotoViewDelegate
+
+extension PhotosDataSource: PHLivePhotoViewDelegate {
+    func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
+        isPlayingHint = (playbackStyle == .hint)
+    }
+    
+    func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
+        isPlayingHint = (playbackStyle == .hint)
+    }
+}
