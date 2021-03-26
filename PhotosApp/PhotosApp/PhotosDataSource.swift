@@ -8,12 +8,24 @@
 import UIKit
 import Photos
 
-class PhotosDataSource: NSObject {
+class PhotosDataSource: NSObject, PhotosDataSourceManageable {
     private var photosAsset: PhotosAssetManageable
     
     override init() {
         self.photosAsset = PhotosAsset()
         super.init()
+    }
+    
+    func adjustFilter(to indexPaths: [IndexPath]) {
+        self.photosAsset.adjustFilter(name: "CIBloom", to: indexPaths)
+    }
+    
+    func revertFilter(by indexPaths: [IndexPath]) {
+        self.photosAsset.revertFilter(by: indexPaths)
+    }
+    
+    func isFiltered(_ indexPaths: [IndexPath]) -> Bool {
+        return self.photosAsset.isFiltered(indexPaths)
     }
 }
 
