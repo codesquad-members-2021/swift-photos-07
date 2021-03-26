@@ -14,9 +14,6 @@ class PhotosDataSource: NSObject {
     private var photo: PHAsset!
     private var photos = PHAsset.fetchAssets(with: .none)
     private let cachingManager = PHCachingImageManager()
-    fileprivate var playerLayer: AVPlayerLayer!
-    fileprivate var isPlayingHint = false
-    
     
     override init() {
         super.init()
@@ -79,11 +76,6 @@ extension PhotosDataSource: UICollectionViewDataSource {
             cell.livePhotoImageView.livePhoto = livePhoto
             cell.livePhotoBadgeImageView.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
             
-            if !self.isPlayingHint {
-                // Play back a short section of the Live Photo, similar to the Photos share sheet.
-                self.isPlayingHint = true
-                cell.livePhotoImageView.startPlayback(with: .hint)
-            }
         }
         
         // Request the live photo for the asset from the default PHImageManager.
@@ -104,18 +96,5 @@ extension PhotosDataSource: PHPhotoLibraryChangeObserver {
         guard let changedPhotos = changeInstance.changeDetails(for: photos) else { return }
         self.photos = changedPhotos.fetchResultAfterChanges
         NotificationCenter.default.post(name: Photo.NotificationName.didChangePhotos, object: self)
-    }
-}
-
-
-//MARK:- PHLivePhotoViewDelegate
-
-extension PhotosDataSource: PHLivePhotoViewDelegate {
-    func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
-        isPlayingHint = (playbackStyle == .hint)
-    }
-    
-    func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
-        isPlayingHint = (playbackStyle == .hint)
     }
 }

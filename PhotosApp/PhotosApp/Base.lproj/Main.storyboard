@@ -38,7 +38,7 @@
                                                     <rect key="frame" x="2" y="2" width="96" height="96"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJC-mA-yIH" customClass="PHLivePhotoView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <rect key="frame" x="2" y="2" width="96" height="96"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xkl-qS-jpw">
@@ -50,12 +50,12 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="MJC-mA-yIH" secondAttribute="bottom" id="LEa-Dz-1Wx"/>
-                                                <constraint firstItem="MJC-mA-yIH" firstAttribute="top" secondItem="XnT-N6-6q7" secondAttribute="top" id="LRd-Uu-5kh"/>
+                                                <constraint firstAttribute="bottom" secondItem="MJC-mA-yIH" secondAttribute="bottom" constant="2" id="LEa-Dz-1Wx"/>
+                                                <constraint firstItem="MJC-mA-yIH" firstAttribute="top" secondItem="XnT-N6-6q7" secondAttribute="top" constant="2" id="LRd-Uu-5kh"/>
                                                 <constraint firstAttribute="trailing" secondItem="1GS-Eg-Mps" secondAttribute="trailing" constant="2" id="ZAp-lr-hHd"/>
                                                 <constraint firstItem="1GS-Eg-Mps" firstAttribute="leading" secondItem="XnT-N6-6q7" secondAttribute="leading" constant="2" id="g1A-SA-uEy"/>
-                                                <constraint firstAttribute="trailing" secondItem="MJC-mA-yIH" secondAttribute="trailing" id="kkD-aH-rHt"/>
-                                                <constraint firstItem="MJC-mA-yIH" firstAttribute="leading" secondItem="XnT-N6-6q7" secondAttribute="leading" id="lET-zm-pm7"/>
+                                                <constraint firstAttribute="trailing" secondItem="MJC-mA-yIH" secondAttribute="trailing" constant="2" id="kkD-aH-rHt"/>
+                                                <constraint firstItem="MJC-mA-yIH" firstAttribute="leading" secondItem="XnT-N6-6q7" secondAttribute="leading" constant="2" id="lET-zm-pm7"/>
                                                 <constraint firstItem="1GS-Eg-Mps" firstAttribute="top" secondItem="XnT-N6-6q7" secondAttribute="top" constant="2" id="qRl-DP-Div"/>
                                                 <constraint firstItem="Xkl-qS-jpw" firstAttribute="top" secondItem="XnT-N6-6q7" secondAttribute="top" id="qmE-Vs-Kf9"/>
                                                 <constraint firstItem="Xkl-qS-jpw" firstAttribute="leading" secondItem="XnT-N6-6q7" secondAttribute="leading" id="rgD-it-hLR"/>
