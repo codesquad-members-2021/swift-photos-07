@@ -52,7 +52,6 @@ extension PhotosDataSource: UICollectionViewDataSource {
     
     private func updateStaticPhoto(cell: PhotoCell, at indexPath: IndexPath) {
         let resultHandler = { (image: UIImage?, _: [AnyHashable: Any]?) -> () in
-            
             // Show the image.
             cell.livePhotoImageView.isHidden = true
             cell.imageView.isHidden = false
@@ -62,17 +61,15 @@ extension PhotosDataSource: UICollectionViewDataSource {
     }
     
     private func updateLivePhoto(cell: PhotoCell, at indexPath: IndexPath) {
-        
         let resultHandler = { (livePhoto: PHLivePhoto?, _:[AnyHashable : Any]?) in
             // Show the Live Photo view.
             guard let livePhoto = livePhoto else { return }
-            
+
             // Show the Live Photo.
             cell.imageView.isHidden = true
             cell.livePhotoImageView.isHidden = false
             cell.livePhotoImageView.livePhoto = livePhoto
-            cell.livePhotoBadgeImageView.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
-            
+            cell.livePhotoBadgeImageView.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)            
         }
         photosAsset.requestLivePhoto(with: indexPath.item, completion: resultHandler)
     }

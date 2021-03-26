@@ -14,6 +14,7 @@
 		93A0D535260D4D2B0071FF65 /* PhotosAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D534260D4D2A0071FF65 /* PhotosAsset.swift */; };
 		93A0D538260D511E0071FF65 /* PhotosAssetManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D537260D511E0071FF65 /* PhotosAssetManageable.swift */; };
 		93A0D53B260D6A360071FF65 /* PhotosDataSourceManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D53A260D6A360071FF65 /* PhotosDataSourceManageable.swift */; };
+		93A0D55B260DCA480071FF65 /* DoodleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D55A260DCA480071FF65 /* DoodleCell.swift */; };
 		AE2F88662608692100FEF56A /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2F88652608692100FEF56A /* PhotoCell.swift */; };
 		AE49A34326088C33001E57EC /* PhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A34226088C33001E57EC /* PhotosDataSource.swift */; };
 		AE49A34626088FA3001E57EC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A34526088FA3001E57EC /* Photo.swift */; };
@@ -34,6 +35,7 @@
 		93A0D534260D4D2A0071FF65 /* PhotosAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAsset.swift; sourceTree = "<group>"; };
 		93A0D537260D511E0071FF65 /* PhotosAssetManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAssetManageable.swift; sourceTree = "<group>"; };
 		93A0D53A260D6A360071FF65 /* PhotosDataSourceManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSourceManageable.swift; sourceTree = "<group>"; };
+		93A0D55A260DCA480071FF65 /* DoodleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleCell.swift; sourceTree = "<group>"; };
 		AE2F88652608692100FEF56A /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		AE49A34226088C33001E57EC /* PhotosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSource.swift; sourceTree = "<group>"; };
 		AE49A34526088FA3001E57EC /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				93A0D5172609DF020071FF65 /* DoodlesDataSource.swift */,
+				93A0D55A260DCA480071FF65 /* DoodleCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				AE2F88662608692100FEF56A /* PhotoCell.swift in Sources */,
 				93A0D53B260D6A360071FF65 /* PhotosDataSourceManageable.swift in Sources */,
 				93A0D5212609E4330071FF65 /* JsonParser.swift in Sources */,
+				93A0D55B260DCA480071FF65 /* DoodleCell.swift in Sources */,
 				AEB13A992608646400B70026 /* ViewController.swift in Sources */,
 				AEB13A952608646400B70026 /* AppDelegate.swift in Sources */,
 				93A0D535260D4D2B0071FF65 /* PhotosAsset.swift in Sources */,

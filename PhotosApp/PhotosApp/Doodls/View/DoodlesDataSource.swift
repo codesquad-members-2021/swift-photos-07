@@ -30,18 +30,10 @@ extension DoodlesDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DoodleCell.identifier, for: indexPath) as? DoodleCell else { return UICollectionViewCell() }
         let doodle = getDoodle(at: indexPath)
-        guard let imageUrl = URL(string: doodle.getImage()) else { return UICollectionViewCell() }
+        cell.doodle = doodle
         
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: imageUrl) {
-                DispatchQueue.main.async {
-                    cell.imageView.image = UIImage(data: data)
-                }
-            }
-        }
-    
         return cell
     }
 }
