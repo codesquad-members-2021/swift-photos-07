@@ -7,10 +7,11 @@
 
 import UIKit
 import Photos
+import PhotosUI
 
 class PhotosDataSource: NSObject, PhotosDataSourceManageable {
     private var photosAsset: PhotosAssetManageable
-    
+
     override init() {
         self.photosAsset = PhotosAsset()
         super.init()
@@ -40,12 +41,40 @@ extension PhotosDataSource: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        // MARK: image display
+        if photosAsset.getPhoto(at: indexPath).mediaSubtypes.contains(.photoLive) {
+            updateLivePhoto(cell: cell, at: indexPath)
+        } else {
+            updateStaticPhoto(cell: cell, at: indexPath)
+        }
+        return cell
+    }
+    
+    private func updateStaticPhoto(cell: PhotoCell, at indexPath: IndexPath) {
         let resultHandler = { (image: UIImage?, _: [AnyHashable: Any]?) -> () in
+            
+            // Show the image.
+            cell.livePhotoImageView.isHidden = true
+            cell.imageView.isHidden = false
             cell.imageView.image = image
         }
         photosAsset.requestImage(with: indexPath.item, completion: resultHandler)
-        
-        return cell
     }
+    
+    private func updateLivePhoto(cell: PhotoCell, at indexPath: IndexPath) {
+        
+        let resultHandler = { (livePhoto: PHLivePhoto?, _:[AnyHashable : Any]?) in
+            // Show the Live Photo view.
+            guard let livePhoto = livePhoto else { return }
+            
+            // Show the Live Photo.
+            cell.imageView.isHidden = true
+            cell.livePhotoImageView.isHidden = false
+            cell.livePhotoImageView.livePhoto = livePhoto
+            cell.livePhotoBadgeImageView.image = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
+            
+        }
+        photosAsset.requestLivePhoto(with: indexPath.item, completion: resultHandler)
+    }
+    
 }
-

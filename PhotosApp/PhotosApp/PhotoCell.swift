@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import PhotosUI
 
 class PhotoCell: UICollectionViewCell {
     static let identifier = "PhotoCell"
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var livePhotoImageView: PHLivePhotoView!
+    @IBOutlet weak var livePhotoBadgeImageView: UIImageView!
     
     override var canBecomeFirstResponder: Bool {
         return true
@@ -31,6 +34,8 @@ class PhotoCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
+        livePhotoImageView.livePhoto = nil
+        livePhotoBadgeImageView.image = nil
         self.selectedBackgroundView?.transform = CGAffineTransform.identity
     }
 }

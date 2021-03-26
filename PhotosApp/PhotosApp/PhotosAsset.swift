@@ -24,6 +24,10 @@ class PhotosAsset: NSObject, PhotosAssetManageable {
         return photos.count
     }
     
+    func getPhoto(at indexPath: IndexPath) -> PHAsset {
+        return photos.object(at: indexPath.item)
+    }
+    
     func requestImage(with item: Int, completion: @escaping (UIImage?, [AnyHashable: Any]?) -> ()) {
         let photo = photos.object(at: item)
         cachingManager.requestImage(for: photo,
@@ -31,6 +35,16 @@ class PhotosAsset: NSObject, PhotosAssetManageable {
                                   contentMode: .aspectFill,
                                   options: nil,
                                   resultHandler: completion)
+    }
+    
+    func requestLivePhoto(with item: Int, completion: @escaping (PHLivePhoto?, [AnyHashable: Any]?) -> ()) {
+        // Request the live photo for the asset from the default PHImageManager.
+        let photo = photos.object(at: item)
+        PHImageManager.default().requestLivePhoto(for: photo,
+                                                  targetSize: CGSize(width: Photo.Size.width, height: Photo.Size.height),
+                                                  contentMode: .aspectFit,
+                                                  options: .none,
+                                                  resultHandler: completion)
     }
     
     func adjustFilter(name filterName: String, to indexPaths: [IndexPath]) {
