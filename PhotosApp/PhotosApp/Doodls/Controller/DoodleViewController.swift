@@ -19,14 +19,17 @@ class DoodleViewController: UIViewController, ImageSaveMenuDidTapped {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(closeButtonTouched))
         
         jsonParser = JsonParser()
+        configureDataSource()
+        configureLongPress()
+    }
+    
+    private func configureDataSource() {
         DispatchQueue.main.async {
             self.jsonParser.parse { doodles in
                 self.doodlesDataSource = DoodlesDataSource(doodles: doodles)
                 self.collectionView.dataSource = self.doodlesDataSource
             }
         }
-        
-        configureLongPress()
     }
     
     private func configureLongPress() {
@@ -63,6 +66,7 @@ class DoodleViewController: UIViewController, ImageSaveMenuDidTapped {
     }
 }
 
+// #selector 매개변수 전달을 위한 custom class
 class CustomUIMenuController: UIMenuController {
     static var imageView: UIImageView?
 }
