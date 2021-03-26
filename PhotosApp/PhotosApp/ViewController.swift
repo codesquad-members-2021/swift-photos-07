@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         self.collectionView.dataSource = self.photosDataSource as? UICollectionViewDataSource
         self.collectionView.allowsMultipleSelection = true
         setPhotosSubscriber()
-        self.collectionView.allowsMultipleSelection = true
     }
     
     private func setPhotosSubscriber() {
@@ -38,26 +37,26 @@ class ViewController: UIViewController {
         self.collectionView.reloadData()
     }
     
-    private func pushView() {
-        let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "DoodleViewController") as! DoodleViewController
+    private func presentDoodleVC() {
+        let doodleVC = self.storyboard?.instantiateViewController(withIdentifier: "DoodleViewController") as! DoodleViewController
         
-        let navController = UINavigationController(rootViewController: pushVC)
+        let navController = UINavigationController(rootViewController: doodleVC)
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated:true, completion: nil)
      }
 
     @IBAction func addButton(_ sender: Any) {
-        pushView()
+        self.presentDoodleVC()
     }
     
-    @IBAction func EditButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         let actionSheet = UIAlertController(title: .none, message: .none, preferredStyle: .actionSheet)
         let makeVideo = UIAlertAction(title: "동영상 만들기", style: .default, handler: .none)
         let adjustEffect = UIAlertAction(title: "효과 주기", style: .default) { action in
-            self.applyFilter()
+            self.adjustFilter()
         }
         let revert = UIAlertAction(title: "되돌리기", style: .default) { action in
-            self.applyRevert()
+            self.revertFilter()
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -77,25 +76,17 @@ class ViewController: UIViewController {
     private func checkEditActionActivity(_ makeVideoAction: UIAlertAction, _ adjustEffectAction : UIAlertAction, _ revertAction: UIAlertAction) {
         guard let selectedImages = self.collectionView.indexPathsForSelectedItems else { return }
         
-        if selectedImages.count == 1 && self.isFiltered() {
-            revertAction.isEnabled = true
-        }
-        
-        if selectedImages.count > 2 {
-            makeVideoAction.isEnabled = true
-        }
-        
-        if selectedImages.count >= 1 {
-            adjustEffectAction.isEnabled = true
-        }
+        if selectedImages.count == 1 && self.isFiltered() { revertAction.isEnabled = true }
+        if selectedImages.count > 2 { makeVideoAction.isEnabled = true }
+        if selectedImages.count >= 1 { adjustEffectAction.isEnabled = true }
     }
     
-    private func applyFilter() {
+    private func adjustFilter() {
         guard let selectedImages = self.collectionView.indexPathsForSelectedItems else { return }
         self.photosDataSource.adjustFilter(to: selectedImages)
     }
     
-    private func applyRevert() {
+    private func revertFilter() {
         guard let selectedImages = self.collectionView.indexPathsForSelectedItems else { return }
         self.photosDataSource.revertFilter(by: selectedImages)
     }
