@@ -11,6 +11,9 @@
 		93A0D51B2609DF4B0071FF65 /* Doodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D51A2609DF4B0071FF65 /* Doodle.swift */; };
 		93A0D51E2609E1E20071FF65 /* doodle.json in Resources */ = {isa = PBXBuildFile; fileRef = 93A0D51D2609E1E20071FF65 /* doodle.json */; };
 		93A0D5212609E4330071FF65 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D5202609E4330071FF65 /* JsonParser.swift */; };
+		93A0D535260D4D2B0071FF65 /* PhotosAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D534260D4D2A0071FF65 /* PhotosAsset.swift */; };
+		93A0D538260D511E0071FF65 /* PhotosAssetManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D537260D511E0071FF65 /* PhotosAssetManageable.swift */; };
+		93A0D53B260D6A360071FF65 /* PhotosDataSourceManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0D53A260D6A360071FF65 /* PhotosDataSourceManageable.swift */; };
 		AE2F88662608692100FEF56A /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2F88652608692100FEF56A /* PhotoCell.swift */; };
 		AE49A34326088C33001E57EC /* PhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A34226088C33001E57EC /* PhotosDataSource.swift */; };
 		AE49A34626088FA3001E57EC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49A34526088FA3001E57EC /* Photo.swift */; };
@@ -29,6 +32,9 @@
 		93A0D51A2609DF4B0071FF65 /* Doodle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doodle.swift; sourceTree = "<group>"; };
 		93A0D51D2609E1E20071FF65 /* doodle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doodle.json; sourceTree = "<group>"; };
 		93A0D5202609E4330071FF65 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		93A0D534260D4D2A0071FF65 /* PhotosAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAsset.swift; sourceTree = "<group>"; };
+		93A0D537260D511E0071FF65 /* PhotosAssetManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAssetManageable.swift; sourceTree = "<group>"; };
+		93A0D53A260D6A360071FF65 /* PhotosDataSourceManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSourceManageable.swift; sourceTree = "<group>"; };
 		AE2F88652608692100FEF56A /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		AE49A34226088C33001E57EC /* PhotosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSource.swift; sourceTree = "<group>"; };
 		AE49A34526088FA3001E57EC /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -78,6 +84,9 @@
 				AEB13A962608646400B70026 /* SceneDelegate.swift */,
 				AEB13A982608646400B70026 /* ViewController.swift */,
 				AE49A34226088C33001E57EC /* PhotosDataSource.swift */,
+				93A0D534260D4D2A0071FF65 /* PhotosAsset.swift */,
+				93A0D537260D511E0071FF65 /* PhotosAssetManageable.swift */,
+				93A0D53A260D6A360071FF65 /* PhotosDataSourceManageable.swift */,
 				AE49A3482608922F001E57EC /* PhotosGenerator.swift */,
 				AE49A34526088FA3001E57EC /* Photo.swift */,
 				AE2F88652608692100FEF56A /* PhotoCell.swift */,
@@ -167,15 +176,18 @@
 			files = (
 				AE49A34626088FA3001E57EC /* Photo.swift in Sources */,
 				AE2F88662608692100FEF56A /* PhotoCell.swift in Sources */,
+				93A0D53B260D6A360071FF65 /* PhotosDataSourceManageable.swift in Sources */,
 				93A0D5212609E4330071FF65 /* JsonParser.swift in Sources */,
 				AEB13A992608646400B70026 /* ViewController.swift in Sources */,
 				AEB13A952608646400B70026 /* AppDelegate.swift in Sources */,
+				93A0D535260D4D2B0071FF65 /* PhotosAsset.swift in Sources */,
 				AE49A3492608922F001E57EC /* PhotosGenerator.swift in Sources */,
 				93A0D51B2609DF4B0071FF65 /* Doodle.swift in Sources */,
 				AEB13A972608646400B70026 /* SceneDelegate.swift in Sources */,
 				93A0D5182609DF020071FF65 /* DoodlesDataSource.swift in Sources */,
 				AE620F712609890900BD0FCE /* DoodleViewController.swift in Sources */,
 				AE49A34326088C33001E57EC /* PhotosDataSource.swift in Sources */,
+				93A0D538260D511E0071FF65 /* PhotosAssetManageable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
